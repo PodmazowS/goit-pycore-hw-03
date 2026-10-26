@@ -1,17 +1,19 @@
-from datetime import datetime
+from datetime import datetime, date
 
 def get_days_from_today(date: str) -> datetime:
     try:
-        parsed_date = datetime.strptime(date, '%Y-%m-%d')
+        parsed_date = datetime.strptime(date, '%Y-%m-%d').date()
+
+        todays_date = datetime.now().date()
+
+        date_difference = todays_date - parsed_date
             
-        todays_date = datetime.today()
-            
-        date_difference = parsed_date - todays_date
-            
-        return print(f"Day difference is: {date_difference.days}")
+        return date_difference.days
             
     except (ValueError, TypeError):
         return None
             
             
-get_days_from_today('2021-01-24')
+days = get_days_from_today('2021-01-24')
+
+print(days)

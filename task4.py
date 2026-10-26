@@ -30,7 +30,7 @@ def get_upcoming_birthdays(persons: list[dict[str, any]]) -> list[dict[str, any]
 
 
             dict_for_congrats = {"name": person["name"],
-                                  "congraturation_date": birthday_this_year.strftime("%Y.%m.%d")}
+                                  "congratulation_date": birthday_this_year.strftime("%Y.%m.%d")}
 
             new_list.append(dict_for_congrats) ## appending list with a dictionarries with the name and date to congrat
 

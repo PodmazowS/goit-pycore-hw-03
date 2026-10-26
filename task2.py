@@ -1,21 +1,16 @@
 import random
 
 def get_numbers_ticket(min: int, max: int, quantity: int) -> list[int]:
-
-    amount = quantity
-    random_nums = set()
-
-    if min < 1 or max > 1000 or max - min < quantity:
+    
+    if min < 1 or max > 1000 or (max - min+1) < quantity or quantity < 1:
         return []
-    else:
-        while amount != 0:
-            random_nums.add(random.randint(min,max))
-            amount -= 1
 
-    return sorted(list(random_nums))
+    random_nums = random.sample(range(min, max+1), quantity)
+
+    return sorted(random_nums)
 
 
-lottery_numbers = get_numbers_ticket(3,10,9)
+lottery_numbers = get_numbers_ticket(3,5,3)
 
 print(f"Your lottery numbers are {lottery_numbers}")
 
